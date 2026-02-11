@@ -1,57 +1,60 @@
-import { useShallow } from "zustand/react/shallow";
-import useChatStore from "../store/Chat.store";
-import { Role } from "../store/Chat.types";
-import { streamText } from "ai";
-import { createOpenAI } from "@ai-sdk/openai";
-import { generateSystemPrompt } from "../utils/prompt";
-import { marked } from "marked";
+import { useShallow } from 'zustand/react/shallow';
+import useChatStore from '../store/Chat.store';
+import { Role } from '../store/Chat.types';
+import { marked } from 'marked';
+import browser from 'webextension-polyfill';
 
 export default function useChat() {
-  const { apiKey, addMessage, updateMessage } = useChatStore(
-    useShallow(({ updateMessage, addMessage, apiKey }) => ({
-      apiKey,
+  const { addMessage, updateMessage } = useChatStore(
+    useShallow(({ updateMessage, addMessage }) => ({
       updateMessage,
       addMessage,
     }))
   );
 
-  /**
-   * Sends a message to the assistant
-   * 1. Adds the user message to the store
-   * 2. Streams the assistant response
-   * 3. Updates the assistant message in the store
-   * @param message string
-   */
   const sendMessage = async (message: string) => {
-    // add the user message to the store
+    // 1. Add user message to UI
     addMessage(Role.user, message);
 
-    // create an instance of the OpenAI API
-    const ChatGPT = createOpenAI({
-      apiKey,
-    });
-    // generate a system prompt
-    const systemPrompt = await generateSystemPrompt();
+    // 2. Create a placeholder for the AI response
+    const assistantMessageId = addMessage(Role.assistant, 'Agent wird initialisiert...');
 
-    // create a text stream
-    const { textStream } = streamText({
-      model: ChatGPT("gpt-3.5-turbo"),
-      messages: [
-        {
-          role: Role.system,
-          content: systemPrompt,
-        },
-        ...Object.values(useChatStore.getState().messages),
-      ],
-    });
+    try {
+      // 3. Get URL
+      let url = window.location.href;
+      
+      try {
+        // Try to get active tab URL via polyfill
+        const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+        if (tabs[0] && tabs[0].url) {
+          url = tabs[0].url;
+        }
+      } catch (e) {
+        console.log("Using window.location.href as fallback", e);
+      }
+      
+      console.log("Prompting background for URL:", url);
 
-    // create an assistant message, we will update this message as we stream the response
-    const assistantMessageId = addMessage(Role.assistant, "");
-    const parts = [];
-    for await (const textPart of textStream) {
-      parts.push(textPart);
-      const markedText = await marked.parse(parts.join(""));
-      updateMessage(assistantMessageId, markedText);
+      // 4. Send the prompt to our background script (to bypass Mixed Content / CORS)
+      const data = await browser.runtime.sendMessage({
+        type: "RUN_STAGEHAND_TEST",
+        prompt: message,
+        url: url,
+      });
+
+      if (!data || !data.success) {
+        throw new Error(data?.error || 'Keine Antwort vom Backend erhalten.');
+      }
+
+      const formattedResponse = await marked.parse(data.message || 'Aktion erfolgreich ausgeführt.');
+      
+      // 5. Update the AI message with the final result
+      updateMessage(assistantMessageId, formattedResponse);
+
+    } catch (err: any) {
+      console.error("Fehler bei der Kommunikation:", err);
+      const errorMessage = await marked.parse(`**Fehler:** ${err.message}. \n\n*Läuft dein lokaler \`server.js\`?*`);
+      updateMessage(assistantMessageId, errorMessage);
     }
   };
 

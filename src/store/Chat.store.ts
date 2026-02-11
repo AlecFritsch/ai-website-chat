@@ -3,24 +3,15 @@ import { ChatRole, ChatStoreState, Message, Role } from "./Chat.types";
 import { v4 as uuid } from "uuid";
 import { API_KEY_STORAGE_KEY } from "../utils/constants";
 
-const initalState = {
+const useChatStore = create<ChatStoreState>((set) => ({
   messages: {},
-  apiKey: localStorage.getItem(API_KEY_STORAGE_KEY) || "",
-};
-
-const useChatStore = create<ChatStoreState>((set, get) => ({
-  // The initial state of the store
-  ...initalState,
+  apiKey: "gemini-key-managed-in-backend", // Dummy key
 
   saveApiKey: (key: string) => {
-    set({ apiKey: key });
-    localStorage.setItem(API_KEY_STORAGE_KEY, key);
+    // Diese Funktion wird nicht mehr benötigt, da wir keinen Key im Frontend speichern
+    console.log("API Key wird jetzt im Backend verwaltet.");
   },
-  /**
-   * Add a new message to the store
-   * @param role ChatRole
-   * @param content string
-   * */
+
   addMessage: (role: ChatRole, content: string) => {
     const messageId = uuid();
     set((state) => ({
@@ -36,23 +27,18 @@ const useChatStore = create<ChatStoreState>((set, get) => ({
     return messageId;
   },
 
-  /**
-   * Update a message in the store
-   */
   updateMessage: (id: string, content: string) => {
     set((state) => ({
       messages: {
         ...state.messages,
         [id]: {
-          ...state.messages[id],
+          ...(state.messages[id] || { id, role: Role.assistant }),
           content,
         },
       },
     }));
   },
-  /**
-   * Clear all messages from the store
-   * */
+
   clearMessages: () => {
     set({ messages: {} });
   },

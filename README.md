@@ -1,121 +1,1374 @@
-# Chat With URL
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+- 👋 Hi, I’m @haxzie
+- 👀 I’m interested in AI, Web Development, and Open Source
+- 🌱 I’m currently learning about AI and Machine Learning
+- 💞️ I’m looking to collaborate on projects related to AI and Web Development
+- 📫 How to reach me: You can reach me on Twitter @haxzie
+- 😄 Pronouns: he/him
+- ⚡ Fun fact: I love to travel and explore new places
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+"use strict";
 
-Chat With URL is a Chrome extension that leverages large language models (LLMs) to enable users to chat with any website. It provides seamless communication and context-aware interactions with the content of the current webpage.
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _path() {
+  const data = _interopRequireDefault(require("path"));
+  _path = function () {
+    return data;
+  };
+  return data;
+}
+function _cliTools() {
+  const data = require("@react-native-community/cli-tools");
+  _cliTools = function () {
+    return data;
+  };
+  return data;
+}
+function _chalk() {
+  const data = _interopRequireDefault(require("chalk"));
+  _chalk = function () {
+    return data;
 
-## Features
+  };
+  return data;
+}
+function _child_process() {
+  const data = require("child_process");
+  _child_process = function () {
+    return data;
+  };
+  return data;
+}
+function _os() {
+  const data = _interopRequireDefault(require("os"));
+  _os = function () {
+    return data;
+  };
+  return data;
+}
+function _util() {
+  const data = require("util");
+  _util = function () {
+    return data;
+  };
+  return data;
+}
+var _launchDebugger = _interopRequireDefault(require("./launchDebugger"));
+var _launchDefaultBrowser = _interopRequireDefault(require("./launchDefaultBrowser"));
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-- **Interactive Chat Interface**: Engage in natural language conversations with websites.
-- **Context-Aware Responses**: The extension uses the content of the current page to provide accurate and relevant responses.
-- **Customizable Settings**: Configure preferences for your chat experience.
-- **Modern UI**: Built with React and Vite for a responsive and sleek interface.
-- **LLM Integration**: Powered by AI SDKs to deliver intelligent and contextual interactions.
+async function startServerInNewWindow(port, terminal, projectRoot) {
+  if (!terminal) {
+    _cliTools().logger.error('Cannot start the packager. Did you forget to install a terminal application?');
+    return;
+  }
 
----
+  /**
+   * Set up OS-specific filenames and commands
+   */
+  const isWindows = _os().default.platform() === 'win32';
+  const scriptFile = isWindows ? 'launchPackager.bat' : 'launchPackager.sh';
+  const packagerDir = _path().default.resolve(projectRoot, 'node_modules', 'react-native', 'scripts');
+  const launchPackagerScript = _path().default.resolve(packagerDir, scriptFile);
+  const procConfig = {
+    detached: true,
+    stdio: 'ignore'
+  };
+  if (isWindows) {
+    await (0, _util().promisify)(_child_process().exec)(`start "" /D "${packagerDir}" "${launchPackagerScript}"`, (error, stdout, stderr) => {
+      if (error) {
+        _cliTools().logger.error(error.message);
+      }
+    });
+    return;
+  }
+  const terminalArgs = terminal.split(' ');
+  const t = terminalArgs.shift();
+  if (terminalArgs.join(' ') === '') {
+    (0, _child_process().spawn)(t, [launchPackagerScript], procConfig).unref();
+  } else {
+    (0, _child_process().spawn)(t, terminalArgs.concat(launchPackagerScript), procConfig).unref();
+  }
+}
+async function openStackFrameInEditor(stackFrame, projectRoot) {
+  const {
+    fileName,
+    lineNumber,
+    column
+  } = stackFrame;
+  if (!fileName || !lineNumber) {
+    _cliTools().logger.debug('Cannot open stack frame in editor');
+    return;
+  }
+  const absolutePath = _path().default.resolve(projectRoot, fileName);
+  try {
+    const {
+      isTerminalEditor
+    } = await (0, _cliTools().launchEditor)(absolutePath, lineNumber, column);
+    if (isTerminalEditor) {
+      _cliTools().logger.info(_chalk().default.green('Stack frame has been opened in your editor'));
+    }
+  } catch (e) {
+    _cliTools().logger.debug('Failed to open stack frame in editor: ' + e.message);
+  }
+}
+function openURLInBrowser(url) {
+  (0, _launchDefaultBrowser.default)(url);
+}
+var _default = {
+  'server-new-window': startServerInNewWindow,
+  'open-stack-frame': openStackFrameInEditor,
+  'open-url': openURLInBrowser,
+  'launch-js-debugger': _launchDebugger.default
+};
+exports.default = _default;
 
-## File Structure
-
-The project is organized as follows:
-
-```
-src
-├── assets
-│   └── styles        # Contains global styles and fonts
-│       ├── fonts
-│       │   ├── Borel
-│       │   └── inter
-│       └── setup     # Initial style configurations
-├── components         # Reusable React components
-│   ├── Message        # Chat message component
-│   ├── Settings       # Settings panel
-│   └── icons          # Custom icons
-├── hooks              # Custom React hooks
-├── layouts            # Page layouts
-├── pages              # Extension pages (popup, widget, etc.)
-├── store              # State management (Zustand)
-└── utils              # Utility functions
-tests                  # All the tests
-```
-
----
-
-## Development
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- Yarn or npm
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/chat-with-url.git
-   cd chat-with-url
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Scripts
-
-- **Start Development Server**:
-  ```bash
-  npm run dev
-  ```
-  Launches a development server for building the extension. This will also open up a chrome instance with the plugin already installed.
-
-- **Build for Production**:
-  ```bash
-  npm run build
-  ```
-  Compiles TypeScript and bundles the extension for production.
-
-- **Export as ZIP**:
-  ```bash
-  npm run zip
-  ```
-  Packages the extension into a `.zip` file for deployment.
-
----
-
-### Testing
-- **Create a build**
-  ```bash
-  npm run build
-  ```
-  Compiles TypeScript and bundles the extension for production.
-- **Run Vitest**
-  ```bash
-  npm run test
-  ```
-  Runs vitest test runner
-
-## Usage
-
-1. Load the extension in Chrome:
-   - Open Chrome and navigate to `chrome://extensions/`.
-   - Enable "Developer mode" and click "Load unpacked."
-   - Select the `dist` directory generated by the `npm run build` command.
-
-2. Interact with any website:
-   - Open the extension by clicking its icon in the browser toolbar.
-   - Start chatting with the website content.
-
----
-
-## Built With
-
-- **React**: For the user interface.
-- **Vite**: Fast and modern build tool.
-- **Zustand**: For state management.
-- **AI SDK**: For LLM integration.
-- **TypeScript**: Ensures type safety and maintainability.
-- **SASS**: For styling.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+//# sourceMappingURL=index.js.map
