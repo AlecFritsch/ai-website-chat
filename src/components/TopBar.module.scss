@@ -49,7 +49,35 @@
   .actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+
+    .nameInput {
+      background: var(--color-element-background);
+      border: 1px solid var(--color-border);
+      color: var(--color-font);
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: var(--radius-rounded);
+      width: 120px;
+      outline: none;
+
+      &:focus {
+        border-color: var(--color-font-lighter);
+      }
+
+      &::placeholder {
+        color: var(--color-font-lighter);
+      }
+    }
+
+    .recordingIndicator {
+      font-size: 12px;
+      color: var(--color-font-lighter);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 6px;
+    }
   }
   .actionButton {
     width: 34px;

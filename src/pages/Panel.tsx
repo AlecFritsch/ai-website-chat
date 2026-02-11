@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ChatScreen from "../components/ChatScreen";
-import RecordingControls from "../components/RecordingControls";
 import TestList from "../components/TestList";
 import PanelLayout from "../layouts/PanelLayout";
 import styles from "./Panel.module.scss";
@@ -27,10 +26,7 @@ export default function Panel() {
         </div>
         
         {activeTab === 'chat' ? (
-          <>
-            <RecordingControls />
-            <ChatScreen />
-          </>
+          <ChatScreen />
         ) : (
           <TestList />
         )}

@@ -4,68 +4,83 @@ import { CHAT_WIDGET_ID } from "./constants";
  * Setup the chat widget
  */
 export function setupChatWidget() {
+  // Create container
+  const container = document.createElement("div");
+  container.id = CHAT_WIDGET_ID + "-container";
+  container.style.position = "fixed";
+  container.style.bottom = "20px";
+  container.style.right = "20px";
+  container.style.width = "400px";
+  container.style.height = "600px";
+  container.style.zIndex = "9999";
+  container.style.display = "none";
+
   // Create the iframe
   const iframe = document.createElement("iframe");
   iframe.id = CHAT_WIDGET_ID;
   iframe.src = chrome.runtime.getURL("src/widget.html");
-  iframe.style.display = "none";
-  iframe.style.position = "fixed";
-  iframe.style.bottom = "20px";
-  iframe.style.right = "20px";
-  iframe.style.width = "400px";
-  iframe.style.height = "600px";
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
   iframe.style.border = "1px solid #37373a";
-  iframe.style.zIndex = "9999";
   iframe.style.backgroundColor = "#161618";
   iframe.style.borderRadius = "8px";
   iframe.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.5)";
+  iframe.style.display = "block";
 
-  // Add the iframe to the document
-  document.body.appendChild(iframe);
+  // Create drag handle overlay (only left side of TopBar, excluding buttons)
+  const dragHandle = document.createElement("div");
+  dragHandle.style.position = "absolute";
+  dragHandle.style.top = "0";
+  dragHandle.style.left = "0";
+  dragHandle.style.width = "200px"; // Only cover title area
+  dragHandle.style.height = "48px";
+  dragHandle.style.cursor = "grab";
+  dragHandle.style.zIndex = "1";
+  dragHandle.style.pointerEvents = "auto";
+
+  container.appendChild(iframe);
+  container.appendChild(dragHandle);
+  document.body.appendChild(container);
 
   // Dragging logic
   let isDragging = false;
   let offsetX = 0;
   let offsetY = 0;
 
-  iframe.addEventListener("mouseenter", () => {
+  container.addEventListener("mouseenter", () => {
     if (!isDragging) {
       iframe.style.borderColor = "#838e95";
     }
   });
 
-  iframe.addEventListener("mouseleave", () => {
+  container.addEventListener("mouseleave", () => {
     if (!isDragging) {
       iframe.style.borderColor = "#37373a";
     }
   });
 
-  // Mouse down event to start dragging - only in top 80px area (TopBar + Tabs)
-  iframe.addEventListener("mousedown", (e) => {
-    const rect = iframe.getBoundingClientRect();
-    const relativeY = e.clientY - rect.top;
-    
-    // Only allow dragging from top 80px (TopBar + Tabs area)
-    if (relativeY <= 80) {
-      isDragging = true;
-      offsetX = e.clientX - iframe.offsetLeft;
-      offsetY = e.clientY - iframe.offsetTop;
-      iframe.style.pointerEvents = "none";
-      e.preventDefault();
-    }
+  // Mouse down on drag handle to start dragging
+  dragHandle.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - container.offsetLeft;
+    offsetY = e.clientY - container.offsetTop;
+    dragHandle.style.cursor = "grabbing";
+    // Keep same size, don't expand
+    e.preventDefault();
   });
 
-  // Mouse move event to drag the iframe
+  // Mouse move event to drag the container
   document.addEventListener("mousemove", (e) => {
     if (isDragging) {
+      // Disable iframe pointer events during drag
+      iframe.style.pointerEvents = "none";
       const newX = e.clientX - offsetX;
       const newY = e.clientY - offsetY;
-      
       requestAnimationFrame(() => {
-        iframe.style.left = `${newX}px`;
-        iframe.style.top = `${newY}px`;
-        iframe.style.bottom = "";
-        iframe.style.right = "";
+        container.style.left = `${newX}px`;
+        container.style.top = `${newY}px`;
+        container.style.bottom = "";
+        container.style.right = "";
       });
     }
   });
@@ -74,6 +89,8 @@ export function setupChatWidget() {
   document.addEventListener("mouseup", () => {
     if (isDragging) {
       isDragging = false;
+      dragHandle.style.cursor = "grab";
+      // Re-enable iframe pointer events
       iframe.style.pointerEvents = "auto";
     }
   });
@@ -84,9 +101,9 @@ export function setupChatWidget() {
  * @param widgetId string
  */
 export function setWidgetToVisibility(widgetId: string, visibile: boolean) {
-  const iframe = document.getElementById(widgetId) as HTMLIFrameElement;
-  if (iframe) {
-    iframe.style.display = visibile ? "block" : "none";
+  const container = document.getElementById(widgetId + "-container");
+  if (container) {
+    container.style.display = visibile ? "block" : "none";
   }
 }
 
@@ -128,13 +145,13 @@ export const removeChatWidget = async () => {
     const currentTab = tabs[0];
 
     if (currentTab && currentTab.id) {
-      // remove the iframe from the current tab
+      // hide the container from the current tab
       chrome.scripting.executeScript({
         target: { tabId: currentTab.id },
         func: (widgetId) => {
-          const iframe = document.getElementById(widgetId);
-          if (iframe) {
-            iframe.style.display = "none";
+          const container = document.getElementById(widgetId + "-container");
+          if (container) {
+            container.style.display = "none";
           }
         },
         args: [CHAT_WIDGET_ID],
