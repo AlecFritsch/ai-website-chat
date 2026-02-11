@@ -1,0 +1,36 @@
+.panelContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-background);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background);
+
+  button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: var(--color-font-lighter);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: var(--color-font);
+      background-color: var(--color-element-background);
+    }
+
+    &.active {
+      color: var(--color-font);
+      border-bottom-color: var(--color-font);
+      background-color: var(--color-element-background);
+    }
+  }
+}

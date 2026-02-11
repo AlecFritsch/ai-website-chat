@@ -6,11 +6,18 @@
   height: 48px;
   background-color: var(--color-background-transparent);
   backdrop-filter: blur(5px);
-  border-bottom: 1px solid var(--color-border); 
+  border-bottom: 1px solid var(--color-border);
+  cursor: grab;
+  user-select: none;
+
+  &:active {
+    cursor: grabbing;
+  }
 
   .header {
     display: flex;
     align-items: center;
+    pointer-events: none;
 
     .backButton {
       width: 34px;
@@ -23,6 +30,7 @@
       outline: none;
       color: var(--color-font);
       border-radius: var(--radius-rounded);
+      pointer-events: auto;
 
       &:hover {
         cursor: pointer;

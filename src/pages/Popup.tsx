@@ -15,14 +15,14 @@ export default function Popup() {
         <AIIcon />
       </div>
       <div className={styles.texts}>
-        <h2>Chat with this website</h2>
-        <p>Quickly as questions and let AI answer your queries</p>
+        <h2>AI Testing Assistant</h2>
+        <p>Chat with AI and record test flows</p>
       </div>
       <button className={styles.cta} onClick={injectScript}>
-        Chat With Website
+        Open Chat
       </button>
       <div className={styles.helpText}>
-        ⌥ + C to open chat
+        Alt + C to toggle
       </div>
     </div>
   );

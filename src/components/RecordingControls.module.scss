@@ -1,0 +1,118 @@
+.controls {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background);
+}
+
+.recordBtn {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--color-element-background);
+  color: var(--color-font);
+  border: 1px solid var(--color-element-border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--color-element-background-light);
+    border-color: var(--color-font-lighter);
+  }
+}
+
+.nameInput {
+  display: flex;
+  gap: 6px;
+  
+  input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid var(--color-element-border);
+    border-radius: 6px;
+    background-color: var(--color-element-background);
+    color: var(--color-font);
+    font-size: 13px;
+    outline: none;
+
+    &:focus {
+      border-color: var(--color-font-lighter);
+    }
+
+    &::placeholder {
+      color: var(--color-font-lighter);
+    }
+  }
+
+  button {
+    padding: 8px 12px;
+    border: 1px solid var(--color-element-border);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--color-element-background);
+    color: var(--color-font);
+
+    &:hover {
+      background-color: var(--color-element-background-light);
+    }
+  }
+
+  .startBtn {
+    border-color: var(--color-font-lighter);
+  }
+}
+
+.recordingIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background-color: var(--color-element-background);
+  border: 1px solid var(--color-element-border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--color-font);
+  margin-bottom: 6px;
+
+  .pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+    font-size: 10px;
+  }
+
+  .stepCount {
+    color: var(--color-font-lighter);
+    font-size: 12px;
+    margin-left: auto;
+  }
+}
+
+.stopBtn {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--color-element-background);
+  color: var(--color-font);
+  border: 1px solid var(--color-element-border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--color-element-background-light);
+    border-color: var(--color-font-lighter);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

@@ -7,20 +7,18 @@ export function setupChatWidget() {
   // Create the iframe
   const iframe = document.createElement("iframe");
   iframe.id = CHAT_WIDGET_ID;
-  iframe.src = chrome.runtime.getURL("src/widget.html"); // Load the chat page
-  iframe.draggable = true; // set draggable to true
+  iframe.src = chrome.runtime.getURL("src/widget.html");
   iframe.style.display = "none";
   iframe.style.position = "fixed";
-  iframe.style.bottom = "10px";
-  iframe.style.right = "10px";
+  iframe.style.bottom = "20px";
+  iframe.style.right = "20px";
   iframe.style.width = "400px";
   iframe.style.height = "600px";
-  iframe.style.border = "none";
+  iframe.style.border = "1px solid #37373a";
   iframe.style.zIndex = "9999";
-  iframe.style.backgroundColor = "#5d6573";
-  iframe.style.borderRadius = "10px";
-  iframe.style.paddingTop = "10px"; // Add padding top to the iframe
-  iframe.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.1)"; // Add box shadow to the iframe
+  iframe.style.backgroundColor = "#161618";
+  iframe.style.borderRadius = "8px";
+  iframe.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.5)";
 
   // Add the iframe to the document
   document.body.appendChild(iframe);
@@ -30,20 +28,31 @@ export function setupChatWidget() {
   let offsetX = 0;
   let offsetY = 0;
 
-  iframe.addEventListener("mouseenter", (e) => {
-    iframe.style.backgroundColor = "#687ea3"; // Change border color on hover
+  iframe.addEventListener("mouseenter", () => {
+    if (!isDragging) {
+      iframe.style.borderColor = "#838e95";
+    }
   });
 
-  iframe.addEventListener("mouseleave", (e) => {
-    iframe.style.backgroundColor = "#5d6573"; // Change border color on hover
+  iframe.addEventListener("mouseleave", () => {
+    if (!isDragging) {
+      iframe.style.borderColor = "#37373a";
+    }
   });
-  // Mouse down event to start dragging
+
+  // Mouse down event to start dragging - only in top 80px area (TopBar + Tabs)
   iframe.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    offsetX = e.clientX - iframe.offsetLeft;
-    offsetY = e.clientY - iframe.offsetTop;
-    iframe.style.cursor = "grabbing";
-    iframe.style.pointerEvents = "none"; // Disable pointer events to prevent conflict
+    const rect = iframe.getBoundingClientRect();
+    const relativeY = e.clientY - rect.top;
+    
+    // Only allow dragging from top 80px (TopBar + Tabs area)
+    if (relativeY <= 80) {
+      isDragging = true;
+      offsetX = e.clientX - iframe.offsetLeft;
+      offsetY = e.clientY - iframe.offsetTop;
+      iframe.style.pointerEvents = "none";
+      e.preventDefault();
+    }
   });
 
   // Mouse move event to drag the iframe
@@ -51,12 +60,12 @@ export function setupChatWidget() {
     if (isDragging) {
       const newX = e.clientX - offsetX;
       const newY = e.clientY - offsetY;
-      // Use requestAnimationFrame to prevent jank
+      
       requestAnimationFrame(() => {
         iframe.style.left = `${newX}px`;
         iframe.style.top = `${newY}px`;
-        iframe.style.bottom = ""; // Reset bottom property to prevent conflict
-        iframe.style.right = ""; // Reset right property to prevent conflict
+        iframe.style.bottom = "";
+        iframe.style.right = "";
       });
     }
   });
@@ -65,8 +74,7 @@ export function setupChatWidget() {
   document.addEventListener("mouseup", () => {
     if (isDragging) {
       isDragging = false;
-      iframe.style.cursor = "grab";
-      iframe.style.pointerEvents = "auto"; // Enable pointer events back
+      iframe.style.pointerEvents = "auto";
     }
   });
 }
